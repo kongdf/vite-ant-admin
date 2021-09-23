@@ -1,2 +1,4 @@
 # vite-ant-admin
-vite-vue-Ant-admin，不定时更新一些小demo,
+本项目为了练手并记录一些小demo，不定时更新；
+目前已完成的功能
+* 按需加载ant；
