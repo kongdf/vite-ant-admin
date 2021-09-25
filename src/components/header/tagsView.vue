@@ -1,8 +1,38 @@
 <template>
   <ul>
-    <li v-for="(tag, index) in tags" :key="index" @click="to(tag)">
-      {{ tag }} <CloseSquareOutlined class="cloase" v-show="tags.length!=1" @click.stop="del(index)" />
-    </li>
+    <a-dropdown
+      :trigger="['contextmenu']"
+      v-for="(tag, index) in tags"
+      :key="index"
+    >
+      <li @click="to(tag)" :class="{ active: routerName == tag }">
+        {{ tag }}
+        <CloseSquareOutlined
+          class="cloase"
+          v-show="tags.length != 1"
+          @click.stop="del(index)"
+        />
+      </li>
+      <template #overlay>
+        <a-menu class="f14">
+          <a-menu-item key="1" @click="close(index, 1)"
+            >关闭当前标签页</a-menu-item
+          >
+          <a-menu-item key="2" @click="close(index, 2)"
+            >关闭其他标签页</a-menu-item
+          >
+          <a-menu-item key="3" @click="close(index, 3)"
+            >关闭左侧标签页</a-menu-item
+          >
+          <a-menu-item key="4" @click="close(index, 4)"
+            >关闭右侧标签页</a-menu-item
+          >
+          <a-menu-item key="4" @click="close(index, 5)"
+            >关闭全部标签页</a-menu-item
+          >
+        </a-menu>
+      </template>
+    </a-dropdown>
   </ul>
 </template>
 
@@ -10,22 +40,55 @@
 import { CloseSquareOutlined } from "@ant-design/icons-vue";
 
 export default {
-  inject: ["tags"],
+  // inject: ["tags"],
+
   components: {
     CloseSquareOutlined,
   },
-  methods: {
-    to(val){
-        this.$router.push({
-        name:val
-      }) 
-    },
-    del(index) {
-      this.tags.splice(index, 1); 
+  data() {
+    return {
+      tags: [],
+      routerName: "",
+    };
+  },
+  watch: {
+    $route(val, old) {
+      if (!this.tags.includes(val.name)) {
+        this.tags.push(val.name);
+      }
+      this.routerName = val.name;
     },
   },
-  mounted() {
-  
+  created() {
+    this.routerName = this.$route.name;
+    this.tags = [this.$route.name];
+  },
+
+  methods: {
+    close(index, type) {
+      if (type === 1) {
+        this.tags.splice(index, 1);
+      } else if (type === 2) {
+        this.tags = [this.routerName];
+      } else if (type === 3) {
+        this.tags.splice(0, index);
+      } else if (type === 4) {
+        this.tags.splice((index = 1), this.tags.length - 1);
+      } else if (type === 5) {
+        this.tags = [];
+        // this.$router.push({
+        //   name: 'val',
+        // });
+      }
+    },
+    to(val) {
+      this.$router.push({
+        name: val,
+      });
+    },
+    del(index) {
+      this.tags.splice(index, 1);
+    },
   },
 };
 </script>
@@ -60,6 +123,10 @@ ul {
       right: 3px;
       top: 3px;
     }
+  }
+  .active {
+    border: 1px solid #1890ff;
+    color: #1890ff;
   }
 }
 </style>

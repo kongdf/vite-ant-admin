@@ -30,8 +30,8 @@
           @click="() => (collapsed = !collapsed)"
         />
 
-          <hr class="divider" />
-  
+        <hr class="divider" />
+
         <tagsView />
       </a-layout-header>
       <a-layout-content
@@ -42,9 +42,9 @@
           minHeight: '280px',
         }"
       >
-     <keep-alive> 
-          <router-view  ></router-view> 
-     </keep-alive>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -61,7 +61,6 @@ import {
 import tagsView from "../components/header/tagsView.vue";
 import { defineComponent, ref } from "vue";
 export default defineComponent({
-   
   components: {
     UserOutlined,
     VideoCameraOutlined,
@@ -77,23 +76,22 @@ export default defineComponent({
       collapsed: ref(false),
     };
   },
-  methods:{
-    to(val){
+  methods: {
+    to(val) {
       this.$router.push({
-        name:val
-      }) 
-    }
-  }
+        name: val,
+      });
+    },
+  },
 });
 </script>
 <style>
 .trigger {
   font-size: 18px;
   /* line-height: 30px; */
- 
+
   cursor: pointer;
   transition: color 0.3s;
- 
 }
 
 .trigger:hover {
@@ -108,11 +106,11 @@ export default defineComponent({
   .ant-layout-header {
     height: 120px;
   }
-  .divider{
+  .divider {
     height: 1px;
     padding: 0;
     background: rgba(0, 0, 0, 0.06);
-    border:  none;
+    border: none;
   }
 }
 </style>
