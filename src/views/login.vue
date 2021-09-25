@@ -6,7 +6,7 @@
 export default {
 methods:{
     Login(){
-        this.$router.push('/layout')
+        this.$router.push('/alvideo')
     }
 }
 }

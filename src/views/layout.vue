@@ -5,7 +5,7 @@
       <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
         <a-menu-item key="1">
           <user-outlined />
-          <span @click="to('test1')">nav 1</span>
+          <span @click="to('视频播放')">视频播放</span>
         </a-menu-item>
         <a-menu-item key="2" @click="to('test2')">
           <video-camera-outlined />
@@ -29,7 +29,7 @@
           class="trigger"
           @click="() => (collapsed = !collapsed)"
         />
-
+        <a-button type="primary" style="margin-left:20px" @click="screen">全屏</a-button>
         <hr class="divider" />
 
         <tagsView />
@@ -76,6 +76,7 @@ export default defineComponent({
     return {
       selectedKeys: ref(["1"]),
       collapsed: ref(false),
+      fullscreen: ref(false),
     };
   },
   methods: {
@@ -83,6 +84,32 @@ export default defineComponent({
       this.$router.push({
         name: val,
       });
+    },
+    screen() {
+      let element = document.documentElement;
+      if (this.fullscreen) {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitCancelFullScreen) {
+          document.webkitCancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      } else {
+        if (element.requestFullscreen) {
+          element.requestFullscreen();
+        } else if (element.webkitRequestFullScreen) {
+          element.webkitRequestFullScreen();
+        } else if (element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+        } else if (element.msRequestFullscreen) {
+          // IE11
+          element.msRequestFullscreen();
+        }
+      }
+      this.fullscreen = !this.fullscreen;
     },
   },
 });

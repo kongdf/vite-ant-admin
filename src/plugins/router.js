@@ -16,11 +16,11 @@ const routes = [{
         name: "layout",
         component: () => import('../views/layout.vue'),
         children: [{
-                path: '/test1',
+                path: '/alvideo',
                 // 当 /user/:id/profile 匹配成功 
                 // UserProfile 将被渲染到 User 的 <router-view> 内部
-                name: 'test1',
-                component: () => import('../views/test1.vue'),
+                name: '视频播放',
+                component: () => import('../views/video/alvideo.vue'),
             },
             {
                 path: '/test2',
