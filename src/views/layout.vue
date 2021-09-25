@@ -1,13 +1,13 @@
 <template>
-  <a-layout>
+  <a-layout class="BG">
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
       <div class="logo" />
       <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
         <a-menu-item key="1">
           <user-outlined />
-          <span>nav 1</span>
+          <span @click="to('test1')">nav 1</span>
         </a-menu-item>
-        <a-menu-item key="2">
+        <a-menu-item key="2" @click="to('test2')">
           <video-camera-outlined />
           <span>nav 2</span>
         </a-menu-item>
@@ -24,12 +24,27 @@
           class="trigger"
           @click="() => (collapsed = !collapsed)"
         />
-        <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
+        <menu-fold-outlined
+          v-else
+          class="trigger"
+          @click="() => (collapsed = !collapsed)"
+        />
+
+          <hr class="divider" />
+  
+        <tagsView />
       </a-layout-header>
       <a-layout-content
-        :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }"
+        :style="{
+          margin: '24px 16px',
+          padding: '24px',
+          background: '#fff',
+          minHeight: '280px',
+        }"
       >
-        Content
+     <keep-alive> 
+          <router-view  ></router-view> 
+     </keep-alive>
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -41,45 +56,63 @@ import {
   UploadOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-} from '@ant-design/icons-vue';
-import { defineComponent, ref } from 'vue';
+} from "@ant-design/icons-vue";
+
+import tagsView from "../components/header/tagsView.vue";
+import { defineComponent, ref } from "vue";
 export default defineComponent({
+   
   components: {
     UserOutlined,
     VideoCameraOutlined,
     UploadOutlined,
     MenuUnfoldOutlined,
     MenuFoldOutlined,
+    tagsView,
   },
 
   setup() {
     return {
-      selectedKeys: ref(['1']),
+      selectedKeys: ref(["1"]),
       collapsed: ref(false),
     };
   },
+  methods:{
+    to(val){
+      this.$router.push({
+        name:val
+      }) 
+    }
+  }
 });
 </script>
 <style>
-#components-layout-demo-custom-trigger .trigger {
+.trigger {
   font-size: 18px;
-  line-height: 64px;
-  padding: 0 24px;
+  /* line-height: 30px; */
+ 
   cursor: pointer;
   transition: color 0.3s;
+ 
 }
 
-#components-layout-demo-custom-trigger .trigger:hover {
+.trigger:hover {
   color: #1890ff;
 }
+</style>
 
-#components-layout-demo-custom-trigger .logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.3);
-  margin: 16px;
-}
-
-.site-layout .site-layout-background {
-  background: #fff;
+<style lang="less" scoped>
+.BG {
+  width: 100%;
+  height: 100%;
+  .ant-layout-header {
+    height: 120px;
+  }
+  .divider{
+    height: 1px;
+    padding: 0;
+    background: rgba(0, 0, 0, 0.06);
+    border:  none;
+  }
 }
 </style>
