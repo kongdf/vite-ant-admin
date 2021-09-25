@@ -16,19 +16,19 @@
       <template #overlay>
         <a-menu class="f14">
           <a-menu-item key="1" @click="close(index, 1)"
-            >关闭当前标签页</a-menu-item
+            >关闭当前</a-menu-item
           >
           <a-menu-item key="2" @click="close(index, 2)"
-            >关闭其他标签页</a-menu-item
+            >关闭其他</a-menu-item
           >
           <a-menu-item key="3" @click="close(index, 3)"
-            >关闭左侧标签页</a-menu-item
+            >关闭左侧</a-menu-item
           >
           <a-menu-item key="4" @click="close(index, 4)"
-            >关闭右侧标签页</a-menu-item
+            >关闭右侧</a-menu-item
           >
           <a-menu-item key="4" @click="close(index, 5)"
-            >关闭全部标签页</a-menu-item
+            >关闭全部</a-menu-item
           >
         </a-menu>
       </template>
