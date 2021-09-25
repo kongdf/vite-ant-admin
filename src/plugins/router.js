@@ -23,11 +23,11 @@ const routes = [{
                 component: () => import('../views/video/alvideo.vue'),
             },
             {
-                path: '/test2',
+                path: '/echarts',
                 // 当 /user/:id/posts 匹配成功
                 // UserPosts 将被渲染到 User 的 <router-view> 内部
-                name: 'test2',
-                component: () => import('../views/test2.vue'),
+                name: 'echarts',
+                component: () => import('../views/echarts/echarts.vue'),
             },
         ],
     },

@@ -7,9 +7,9 @@
           <user-outlined />
           <span @click="to('视频播放')">视频播放</span>
         </a-menu-item>
-        <a-menu-item key="2" @click="to('test2')">
+        <a-menu-item key="2" @click="to('echarts')">
           <video-camera-outlined />
-          <span>nav 2</span>
+          <span>echarts</span>
         </a-menu-item>
         <a-menu-item key="3">
           <upload-outlined />
