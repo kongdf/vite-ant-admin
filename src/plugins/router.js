@@ -29,6 +29,20 @@ const routes = [{
                 name: 'echarts',
                 component: () => import('../views/echarts/echarts.vue'),
             },
+            {
+                path: '/tadiao',
+                // 当 /user/:id/posts 匹配成功
+                // UserPosts 将被渲染到 User 的 <router-view> 内部
+                name: 'tadiao',
+                component: () => import('../views/canvas/tadiao.vue'),
+            },
+            {
+                path: '/xeogl',
+                // 当 /user/:id/posts 匹配成功
+                // UserPosts 将被渲染到 User 的 <router-view> 内部
+                name: 'xeogl',
+                component: () => import('../views/canvas/xeogl.vue'),
+            },
         ],
     },
 ];
