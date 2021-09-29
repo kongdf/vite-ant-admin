@@ -8,7 +8,7 @@
             <VideoCameraOutlined />
           </template>
           <template #title>音视频</template>
-          <a-menu-item key="1">
+          <a-menu-item key="视频播放">
     
             <span @click="to('视频播放')">视频播放</span>
           </a-menu-item>
@@ -31,13 +31,12 @@
               <upload-outlined />
           </template>
           <template #title>canvas</template>
-          <a-menu-item key="3" @click="to('tadiao')">
+          <a-menu-item key="塔吊" @click="to('塔吊')">
       
             <span>塔吊</span>
           </a-menu-item>
 
-          <a-menu-item key="3" @click="to('xeogl')">
-    
+          <a-menu-item key="模型" @click="to('模型')"> 
             <span>模型</span>
           </a-menu-item>
         </a-sub-menu>

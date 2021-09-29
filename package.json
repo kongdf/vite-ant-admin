@@ -11,6 +11,7 @@
     "ant-design-vue": "^2.2.8",
     "echarts": "^5.2.1",
     "nprogress": "^0.2.0",
+    "three": "^0.132.2",
     "vue": "^3.2.6",
     "vue-aliplayer-v3": "^1.0.3"
   },

@@ -10,7 +10,20 @@
     } from '../../util/QTMDTD'
 
     export default {
+
         mounted() {
+            let theCanvas = document.getElementById("myArc");
+
+
+
+            var context = theCanvas.getContext("2d");
+
+
+            var w = theCanvas.width;
+            var h = theCanvas.height;
+            context.clearRect(0, 0, w, h);
+
+
             this.$nextTick(() => {
                 initCanvas('myArc', {
                     x: 100,

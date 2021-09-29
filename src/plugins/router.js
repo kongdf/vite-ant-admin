@@ -27,12 +27,12 @@ const routes = [{
             },
             {
                 path: '/tadiao',
-                name: 'tadiao',
+                name: '塔吊',
                 component: () => import('../views/canvas/tadiao.vue'),
             },
             {
                 path: '/xeogl',
-                name: 'xeogl',
+                name: '模型',
                 component: () => import('../views/canvas/xeogl.vue'),
             },
         ],
