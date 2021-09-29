@@ -17,29 +17,21 @@ const routes = [{
         component: () => import('../views/layout.vue'),
         children: [{
                 path: '/alvideo',
-                // 当 /user/:id/profile 匹配成功 
-                // UserProfile 将被渲染到 User 的 <router-view> 内部
                 name: '视频播放',
                 component: () => import('../views/video/alvideo.vue'),
             },
             {
                 path: '/echarts',
-                // 当 /user/:id/posts 匹配成功
-                // UserPosts 将被渲染到 User 的 <router-view> 内部
                 name: 'echarts',
                 component: () => import('../views/echarts/echarts.vue'),
             },
             {
                 path: '/tadiao',
-                // 当 /user/:id/posts 匹配成功
-                // UserPosts 将被渲染到 User 的 <router-view> 内部
                 name: 'tadiao',
                 component: () => import('../views/canvas/tadiao.vue'),
             },
             {
                 path: '/xeogl',
-                // 当 /user/:id/posts 匹配成功
-                // UserPosts 将被渲染到 User 的 <router-view> 内部
                 name: 'xeogl',
                 component: () => import('../views/canvas/xeogl.vue'),
             },

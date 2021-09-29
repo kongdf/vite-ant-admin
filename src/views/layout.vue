@@ -2,24 +2,48 @@
   <a-layout class="BG">
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
       <div class="logo" />
-      <a-menu theme="dark" mode="inline" v-model:selectedKeys="selectedKeys">
-        <a-menu-item key="1">
-          <VideoCameraOutlined />
-          <span @click="to('视频播放')">视频播放</span>
-        </a-menu-item>
-        <a-menu-item key="2" @click="to('echarts')">
-          <BarChartOutlined />
-          <span>echarts</span>
-        </a-menu-item>
-        <a-menu-item key="3" @click="to('tadiao')">
-         <RocketOutlined />
-          <span>塔吊</span>
-        </a-menu-item>
+      <a-menu theme="light" mode="inline" v-model:selectedKeys="selectedKeys">
+        <a-sub-menu key="sub1">
+          <template #icon>
+            <VideoCameraOutlined />
+          </template>
+          <template #title>音视频</template>
+          <a-menu-item key="1">
+    
+            <span @click="to('视频播放')">视频播放</span>
+          </a-menu-item>
+        </a-sub-menu>
 
-        <a-menu-item key="3" @click="to('xeogl')">
-          <upload-outlined />
-          <span>模型</span>
-        </a-menu-item>
+
+        <a-sub-menu key="sub2">
+          <template #icon>
+            <BarChartOutlined />
+          </template>
+          <template #title>图表</template>
+          <a-menu-item key="2" @click="to('echarts')">
+    
+            <span>echarts</span>
+          </a-menu-item>
+        </a-sub-menu>
+
+        <a-sub-menu key="sub3">
+          <template #icon>
+              <upload-outlined />
+          </template>
+          <template #title>canvas</template>
+          <a-menu-item key="3" @click="to('tadiao')">
+      
+            <span>塔吊</span>
+          </a-menu-item>
+
+          <a-menu-item key="3" @click="to('xeogl')">
+    
+            <span>模型</span>
+          </a-menu-item>
+        </a-sub-menu>
+
+
+
       </a-menu>
     </a-layout-sider>
     <a-layout>
@@ -50,7 +74,7 @@
   import {
     VideoCameraOutlined,
     BarChartOutlined,
-     RocketOutlined ,
+    RocketOutlined,
     UserOutlined,
 
     UploadOutlined,
@@ -72,7 +96,7 @@
 
 
 
-      
+
       UserOutlined,
 
       UploadOutlined,
@@ -166,5 +190,10 @@
   .slide-fade-leave-to {
     transform: translateX(20px);
     opacity: 0;
+  }
+
+
+  .ant-layout-sider{
+    background: white;
   }
 </style>
