@@ -157,7 +157,7 @@
     setCamera()
     setLight()
     setControls()
-    const gltf = await loadFile('src/assets/tesla_2018_model_3/scene.gltf')
+    const gltf = await loadFile('../tesla_2018_model_3/scene.gltf')
     
     scene.add(gltf.scene)
     loop()

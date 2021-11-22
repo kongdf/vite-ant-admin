@@ -17,8 +17,13 @@ const routes = [{
         component: () => import('../views/layout.vue'),
         children: [{
                 path: '/alvideo',
-                name: '视频播放',
+                name: '直播源',
                 component: () => import('../views/video/alvideo.vue'),
+            },
+            {
+                path: '/webRTC',
+                name: 'webRTC',
+                component: () => import('../views/video/webRTC.vue'),
             },
             {
                 path: '/echarts',

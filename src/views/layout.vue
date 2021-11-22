@@ -8,9 +8,13 @@
             <VideoCameraOutlined />
           </template>
           <template #title>音视频</template>
-          <a-menu-item key="视频播放">
+          <a-menu-item key="直播源">
     
-            <span @click="to('视频播放')">视频播放</span>
+            <span @click="to('直播源')">直播源</span>
+          </a-menu-item>
+            <a-menu-item key="webRTC">
+    
+            <span @click="to('webRTC')">webRTC</span>
           </a-menu-item>
         </a-sub-menu>
 
@@ -61,9 +65,9 @@
           minHeight: '280px',
         }">
         <transition name="slide-fade">
-          <keep-alive>
+          <!-- <keep-alive> -->
             <router-view></router-view>
-          </keep-alive>
+          <!-- </keep-alive> -->
         </transition>
       </a-layout-content>
     </a-layout>

@@ -7,6 +7,7 @@ import router from './plugins/router'
 import NProgress from 'nprogress'; // progress bar
 import 'nprogress/nprogress.css'
 
+
 let app = createApp(App)
 
 
